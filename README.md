@@ -2,8 +2,16 @@
 >
 > **Fork notice:** This is [harissaninja/Manazir-OCR](https://github.com/harissaninja/Manazir-OCR), a fork of [h9-tec/Manazir-OCR](https://github.com/h9-tec/Manazir-OCR) patched for **API-only installs**. The original requires `torch`, `torchvision`, `transformers`, and `accelerate` as core dependencies (~3-5GB). This fork moves those to an optional `[local-models]` extra so you can install the CLI + remote API backends (vLLM, Mistral OCR, OpenAI GPT-4o) without the ML stack.
 >
-> - **API-only:** `pip install -e .` — no torch, no transformers
-> - **Full local models:** `pip install -e ".[local-models]"`
+> ### One-line install
+>
+> ```bash
+> pip install git+https://github.com/harissaninja/Manazir-OCR.git
+> ```
+>
+> That's it — no clone, no venv step needed. The `manazir` CLI is ready to use after this single command.
+>
+> - **API-only:** `pip install git+https://github.com/harissaninja/Manazir-OCR.git`
+> - **Full local models:** `pip install git+https://github.com/harissaninja/Manazir-OCR.git#egg=manazir-ocr[local-models]`
 
 ![Manazir OCR — UI Screenshot](assets/screenshot-ui.png)
 
@@ -123,7 +131,8 @@ export VLLM_MODEL_NAME=manazir
 
 ## 👤 Author
 
-Developed by **Hesham Haroon** — contact: **heshamharoon19@gmail.com**.
+Original development by **Hesham Haroon** — contact: **heshamharoon19@gmail.com**.
+API-only fork by **harissaninja** — see [github.com/harissaninja/Manazir-OCR](https://github.com/harissaninja/Manazir-OCR).
 
 ## 📜 License
 

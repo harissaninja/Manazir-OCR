@@ -6,9 +6,13 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Apache-2.0"}
 authors = [
-    {name = "Hesham Haroon", email = "contact@heshamharoon.com"}
+    {name = "Hesham Haroon (original), harissaninja (API-only fork)", email = "contact@heshamharoon.com"}
 ]
 keywords = ["ocr", "pdf", "markdown", "layout", "arabic", "multilingual", "ai"]
+
+[project.urls]
+Homepage = "https://github.com/harissaninja/Manazir-OCR"
+Original = "https://github.com/h9-tec/Manazir-OCR"
 dependencies = [
     "beautifulsoup4>=4.14.2",
     "click>=8.0.0",
