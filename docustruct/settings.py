@@ -1,8 +1,11 @@
+from __future__ import annotations
+
+import os
+from typing import Any
+
 from dotenv import find_dotenv
 from pydantic import computed_field
 from pydantic_settings import BaseSettings
-import torch
-import os
 
 
 class Settings(BaseSettings):
@@ -23,9 +26,11 @@ class Settings(BaseSettings):
     VLLM_GPUS: str = "0"
     MAX_VLLM_RETRIES: int = 6
 
-    @computed_field
+    @computed_field  # type: ignore[misc]
     @property
-    def TORCH_DTYPE(self) -> torch.dtype:
+    def TORCH_DTYPE(self) -> Any:
+        import torch
+
         return torch.bfloat16
 
     class Config:

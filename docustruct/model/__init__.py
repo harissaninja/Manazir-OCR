@@ -7,10 +7,18 @@ Includes both the original InferenceManager and the new multi-model architecture
 
 from typing import List
 
-# Original imports for backward compatibility
-from docustruct.model.hf import load_model, generate_hf
+# Original imports for backward compatibility (lazy: hf requires torch)
+try:
+    from docustruct.model.hf import load_model, generate_hf
+except ImportError:
+    load_model = None  # type: ignore
+    generate_hf = None  # type: ignore
+
 from docustruct.model.schema import BatchInputItem, BatchOutputItem, OcrResult
-from docustruct.model.vllm import generate_vllm
+try:
+    from docustruct.model.vllm import generate_vllm
+except ImportError:
+    generate_vllm = None  # type: ignore
 from docustruct.output import parse_markdown, parse_html, parse_chunks, extract_images
 
 # New multi-model architecture imports

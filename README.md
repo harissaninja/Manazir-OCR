@@ -1,4 +1,9 @@
 > # Manazir OCR — Arabic optics‑inspired multi‑model OCR
+>
+> **Fork notice:** This is [harissaninja/Manazir-OCR](https://github.com/harissaninja/Manazir-OCR), a fork of [h9-tec/Manazir-OCR](https://github.com/h9-tec/Manazir-OCR) patched for **API-only installs**. The original requires `torch`, `torchvision`, `transformers`, and `accelerate` as core dependencies (~3-5GB). This fork moves those to an optional `[local-models]` extra so you can install the CLI + remote API backends (vLLM, Mistral OCR, OpenAI GPT-4o) without the ML stack.
+>
+> - **API-only:** `pip install -e .` — no torch, no transformers
+> - **Full local models:** `pip install -e ".[local-models]"`
 
 ![Manazir OCR — UI Screenshot](assets/screenshot-ui.png)
 

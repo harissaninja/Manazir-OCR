@@ -20,16 +20,21 @@ dependencies = [
     "pydantic-settings>=2.11.0",
     "pypdfium2>=4.30.0",
     "python-dotenv>=1.1.1",
-    "qwen-vl-utils>=0.0.14",
-    "torch>=2.8.0",
-    "torchvision>=0.23.0",
-    "transformers>=4.57.1",
     "streamlit>=1.50.0",
-    "accelerate>=1.11.0",
 ]
 
 [project.optional-dependencies]
-# Core multilingual models
+# Local ML models (torch + transformers + friends)
+# Install with: pip install -e ".[local-models]"
+local-models = [
+    "torch>=2.8.0",
+    "torchvision>=0.23.0",
+    "transformers>=4.57.1",
+    "accelerate>=1.11.0",
+    "qwen-vl-utils>=0.0.14",
+]
+
+# Core multilingual models (depends on local-models)
 multilingual = [
     "qwen-vl-utils>=0.0.14",
 ]
@@ -53,9 +58,9 @@ commercial = [
     "requests>=2.31.0",
 ]
 
-# All models
+# All models (everything)
 all = [
-    "docustruct-ocr[multilingual,lightweight,specialized,commercial]",
+    "manazir-ocr[local-models,multilingual,lightweight,specialized,commercial]",
 ]
 
 [build-system]
