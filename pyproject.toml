@@ -10,9 +10,6 @@ authors = [
 ]
 keywords = ["ocr", "pdf", "markdown", "layout", "arabic", "multilingual", "ai"]
 
-[project.urls]
-Homepage = "https://github.com/harissaninja/Manazir-OCR"
-Original = "https://github.com/h9-tec/Manazir-OCR"
 dependencies = [
     "beautifulsoup4>=4.14.2",
     "click>=8.0.0",
@@ -26,6 +23,10 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "streamlit>=1.50.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/harissaninja/Manazir-OCR"
+Original = "https://github.com/h9-tec/Manazir-OCR"
 
 [project.optional-dependencies]
 # Local ML models (torch + transformers + friends)
