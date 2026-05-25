@@ -1,6 +1,8 @@
+# Disabled for fork: requires self-hosted t4_gpu runner and HF_TOKEN.
+# Enable if you have a GPU runner available.
 name: Manazir OCR CI
 
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   tests:

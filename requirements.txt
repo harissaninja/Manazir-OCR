@@ -1,4 +1,6 @@
 # Core dependencies for Manazir OCR (Arabic optics-inspired Multi-Model OCR Framework)
+# API-only install: pip install -e .
+# Full local models: pip install -e ".[local-models]"
 beautifulsoup4>=4.14.2
 click>=8.0.0
 filetype>=1.2.0
@@ -9,15 +11,15 @@ pydantic>=2.12.0
 pydantic-settings>=2.11.0
 pypdfium2>=4.30.0
 python-dotenv>=1.1.1
-qwen-vl-utils>=0.0.14
-torch>=2.8.0
-torchvision>=0.23.0
-transformers>=4.57.1
 streamlit>=1.50.0
-# Pin accelerate by Python version
-accelerate>=1.11.0; python_version >= '3.10'
-accelerate==1.10.1; python_version == '3.9'
-accelerate==0.34.2; python_version == '3.8'
+
+# Optional: Local ML models (torch + transformers)
+# Install with: pip install -e ".[local-models]"
+# torch>=2.8.0
+# torchvision>=0.23.0
+# transformers>=4.57.1
+# accelerate>=1.11.0
+# qwen-vl-utils>=0.0.14
 
 # Optional: Lightweight models
 # easyocr>=1.7.0

@@ -1,8 +1,12 @@
+# Disabled for fork: requires PYPI_TOKEN secret.
+# Enable if you configure PyPI publishing.
 name: Python package
 on:
-  push:
-    tags:
-      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to publish (e.g., v0.2.0)"
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,20 +21,14 @@ jobs:
       - name: Extract and verify version
         id: version
         run: |
-          # Get the tag name (e.g., v1.2.3)
-          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          TAG_VERSION="${{ github.event.inputs.tag }}"
           echo "Tag version: $TAG_VERSION"
-          
-          # Extract version from pyproject.toml (e.g., 1.2.3)
           PYPROJECT_VERSION=$(uv run python -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb'))['project']['version'])")
           echo "pyproject.toml version: $PYPROJECT_VERSION"
-          
-          # Compare versions (tag should be v{pyproject_version})
           if [ "$TAG_VERSION" != "v$PYPROJECT_VERSION" ]; then
             echo "Error: Tag version ($TAG_VERSION) does not match pyproject.toml version (v$PYPROJECT_VERSION)"
             exit 1
           fi
-          
           echo "Version verification passed!"
           echo "version=$TAG_VERSION" >> $GITHUB_OUTPUT
       - name: Build package
